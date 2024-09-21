@@ -1,0 +1,31 @@
+{
+  "name": "zz-elemnet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:play": "pnpm -C  packages/play dev",
+    "docs:dev": "pnpm -C packages/docs dev",
+    "docs:build": "pnpm -C packages/docs build",
+    "docs:preview": "pnpm -C packages/docs preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "sass": "^1.79.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.6",
+    "vitepress": "^1.3.4",
+    "vitest": "^2.1.1",
+    "vue-tsc": "^2.1.6"
+  },
+  "dependencies": {
+    "@zz-element/components": "workspace:*",
+    "@zz-element/core": "workspace:*",
+    "@zz-element/utils": "workspace:*",
+    "vue": "^3.5.6"
+  }
+}

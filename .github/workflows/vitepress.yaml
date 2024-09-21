@@ -1,0 +1,39 @@
+name: 打包并部署
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-vitepress:
+    name: 打包并部署vitepress
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 查看 Node 版本
+        run: node -v
+
+      - name: 安装node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: 安装 pnpm
+        run: npm i pnpm -g
+
+      - name: 安装依赖
+        run: pnpm i
+
+      - name: 打包vitepress
+        run: pnpm docs:build
+
+      - name: vitepress
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./packages/docs/.vitepress/dist
