@@ -1,1 +1,38 @@
-@forward "./config.scss"
+@use "./config.scss" as *;
+@use './variable.scss' as *;
+@forward './config.scss';
+
+@mixin name($block) {
+  .#{$namespace}-#{$block} {
+    color: #fff;
+    transition: $transition;
+    border-radius: 2px;
+  }
+
+  @content;
+
+}
+
+
+$curTheme: light;
+
+@mixin themed() {
+  @each $theme-name, $theme-content in $themes {
+    $curTheme: $theme-name !global;
+
+    @if $curTheme==light {
+      @content;
+    }
+
+    @else {
+      html[data-theme="#{$theme-name}"] {
+        @content;
+      }
+    }
+  }
+}
+
+@function getVal ($key) {
+  $type-map: map-get($themes , $curTheme );
+  @return map-get($type-map, $key)
+}

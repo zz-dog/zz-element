@@ -6,7 +6,9 @@
     "jsx": "preserve",
     "noUnusedLocals": true, //未使用的局部变量
     "noUnusedParameters": true, //未使用的变量
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue"]
 }

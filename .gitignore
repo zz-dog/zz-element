@@ -32,3 +32,4 @@ dist-ssr
 
 /cyperss/videos/
 /cypress/srceenshots/
+*storybook.log

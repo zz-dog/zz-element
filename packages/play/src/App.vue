@@ -1,6 +1,6 @@
 <template>
   <div>this is a play page</div>
-  <ZzButton></ZzButton>
+  <ZzButton size="small">哈哈</ZzButton>
 </template>
 
 <script setup lang="ts">

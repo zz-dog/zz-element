@@ -1,1 +1,41 @@
-@use "./minxins/mixin.scss" as *
+@use "./minxins/mixin.scss" as *;
+@use './minxins//variable.scss' as *;
+@use 'sass:color';
+@import './reset.scss';
+$sizes: (
+  large:(padding:6px 20px),
+  default:(padding:4px 15px),
+  small:(padding:2px 10px)
+);
+$types: map-get($themes, light);
+
+@include name(button) {
+  @each $size, $val in $sizes {
+    .#{$namespace}-button--#{$size} {
+      padding: map-get($val , padding);
+      size: map-get($fontSizes, $size );
+    }
+  }
+
+}
+
+
+
+
+@include themed() {
+  @each $type, $val in $types {
+    .#{$namespace}-button--#{$type} {
+      background-color: getVal($type);
+      border: 1px solid getVal($type);
+
+
+      &:hover {
+        background-color: color.scale(getVal($type), $lightness: 30%)
+      }
+
+      &:active {
+        background-color: color.scale(getVal($type), $lightness: -30%)
+      }
+    }
+  }
+}

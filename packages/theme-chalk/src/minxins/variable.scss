@@ -1,0 +1,28 @@
+$light: (
+  primary: #409eff,
+  success: #67c23a,
+  info: #909399,
+  warning: #e6a23c,
+  danger: #f56c6c
+);
+
+$dark: (
+  primary: #409eff,
+  success: #67c23a,
+  info: #909399,
+  warning: #e6a23c,
+  danger: #f56c6c
+);
+
+$themes: (
+  light: $light,
+  dark: $dark
+);
+
+
+$fontSizes: (
+  large:16px,
+  default:14px,
+  small:12px,
+);
+$transition: all .3s linear
